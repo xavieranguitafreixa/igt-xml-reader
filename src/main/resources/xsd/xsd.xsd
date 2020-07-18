@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="livexml">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="avvenimento"/>
+      </xs:sequence>
+      <xs:attribute name="creazione" use="required" type="xs:NMTOKEN"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="avvenimento">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="scommessa"/>
+      </xs:sequence>
+      <xs:attribute name="cod_programma" use="required" type="xs:integer"/>
+      <xs:attribute name="current_period_start"/>
+      <xs:attribute name="dateTime" use="required"/>
+      <xs:attribute name="des_avvenimento" use="required"/>
+      <xs:attribute name="des_manif" use="required"/>
+      <xs:attribute name="des_sport" use="required" type="xs:NCName"/>
+      <xs:attribute name="num_avvenimento" use="required" type="xs:integer"/>
+      <xs:attribute name="score_team_1" type="xs:integer"/>
+      <xs:attribute name="score_team_2" type="xs:integer"/>
+      <xs:attribute name="score_type"/>
+      <xs:attribute name="sigla_manif" use="required" type="xs:NCName"/>
+      <xs:attribute name="sigla_sport" use="required" type="xs:NCName"/>
+      <xs:attribute name="squadra1"/>
+      <xs:attribute name="squadra2"/>
+      <xs:attribute name="status_code" type="xs:integer"/>
+      <xs:attribute name="status_desc"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="scommessa">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="evento"/>
+      </xs:sequence>
+      <xs:attribute name="attivo_handicap" use="required"/>
+      <xs:attribute name="cod_stato_accett" use="required" type="xs:integer"/>
+      <xs:attribute name="cod_tipo_sco" use="required" type="xs:integer"/>
+      <xs:attribute name="des_tipo_sco" use="required"/>
+      <xs:attribute name="handicap" use="required" type="xs:integer"/>
+      <xs:attribute name="massimo_avv" use="required" type="xs:integer"/>
+      <xs:attribute name="minimo_avv" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="evento">
+    <xs:complexType>
+      <xs:attribute name="des_evento" use="required"/>
+      <xs:attribute name="num_evento" use="required" type="xs:integer"/>
+      <xs:attribute name="quota" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
